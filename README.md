@@ -8,7 +8,8 @@ An industrial-grade, 4-stage movie recommendation engine with a Python FastAPI b
 
 | Component | Platform | Live URL | Status |
 | :--- | :--- | :--- | :--- |
-| **Frontend Web App** | **Vercel** | 🔗 **[https://cine-engine-2-0.vercel.app/](https://cine-engine-2-0.vercel.app/)** | ![Vercel](https://img.shields.io/badge/Vercel-Live-success?style=flat-square&logo=vercel) |
+| **Frontend Web App (Main)** | **Vercel** | 🔗 **[https://cine-engine-2-0.vercel.app/](https://cine-engine-2-0.vercel.app/)** | ![Vercel](https://img.shields.io/badge/Vercel-Production-success?style=flat-square&logo=vercel) |
+| **Latest Deployment** | **Vercel** | 🔗 **[https://cine-engine-2-0-l6a32ydeg-goutam16-withcodes-projects.vercel.app/](https://cine-engine-2-0-l6a32ydeg-goutam16-withcodes-projects.vercel.app/)** | ![Vercel](https://img.shields.io/badge/Vercel-Latest_Build-blue?style=flat-square&logo=vercel) |
 | **Backend Recommendation API** | **Render** | 🔗 **[https://cineengine-2-0.onrender.com/](https://cineengine-2-0.onrender.com/)** | ![Render](https://img.shields.io/badge/Render-Live-success?style=flat-square&logo=render) |
 | **Interactive API Docs** | **Swagger / OpenAPI** | 🔗 **[https://cineengine-2-0.onrender.com/docs](https://cineengine-2-0.onrender.com/docs)** | ![API Docs](https://img.shields.io/badge/OpenAPI-Interactive_Docs-blue?style=flat-square&logo=fastapi) |
 
