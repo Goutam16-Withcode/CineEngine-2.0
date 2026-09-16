@@ -4,6 +4,16 @@ An industrial-grade, 4-stage movie recommendation engine with a Python FastAPI b
 
 ---
 
+## 🌐 Live Deployments
+
+| Component | Platform | Live URL | Status |
+| :--- | :--- | :--- | :--- |
+| **Frontend Web App** | **Vercel** | 🔗 **[https://cine-engine-2-0.vercel.app/](https://cine-engine-2-0.vercel.app/)** | ![Vercel](https://img.shields.io/badge/Vercel-Live-success?style=flat-square&logo=vercel) |
+| **Backend Recommendation API** | **Render** | 🔗 **[https://cineengine-2-0.onrender.com/](https://cineengine-2-0.onrender.com/)** | ![Render](https://img.shields.io/badge/Render-Live-success?style=flat-square&logo=render) |
+| **Interactive API Docs** | **Swagger / OpenAPI** | 🔗 **[https://cineengine-2-0.onrender.com/docs](https://cineengine-2-0.onrender.com/docs)** | ![API Docs](https://img.shields.io/badge/OpenAPI-Interactive_Docs-blue?style=flat-square&logo=fastapi) |
+
+---
+
 ## Architecture Overview
 
 ```text
@@ -20,7 +30,7 @@ e:/Movie recommendation/
 │   │   └── models.py           <-- Pydantic Schemas
 │   ├── data/
 │   │   └── enriched_movies.pkl <-- 45,447 enriched movies cached
-│   ├── api.py                  <-- REST Endpoints (port 8000)
+│   ├── api.py                  <-- REST Endpoints
 │   ├── test_engine.py          <-- Verification script
 │   └── run.py                  <-- Launcher
 │
@@ -28,7 +38,7 @@ e:/Movie recommendation/
     ├── src/
     │   ├── app/                <-- App Router (layout.tsx, page.tsx, globals.css)
     │   ├── components/         <-- Hero, SearchBar, TasteBuilder, Sliders, Cards, Modal
-    │   ├── lib/api.ts          <-- Engine Client
+    │   ├── lib/api.ts          <-- Engine Client (configured for production & local)
     │   └── types/movie.ts      <-- TypeScript Definitions
     ├── tailwind.config.ts
     └── package.json
@@ -55,12 +65,22 @@ e:/Movie recommendation/
 
 ---
 
-## How to Run
+## Key Features in the UI
+- **Live Autocomplete Search (`Ctrl+K`)**: Instant search across 45,000+ films with live poster thumbnails and ratings.
+- **Multi-Movie Taste Profile**: Add up to 5 favorite movies to blend recommendations.
+- **Engine Tuning Panel**: Sliders to adjust Similarity vs. Quality, rating thresholds, and genre filter pills.
+- **5-Column Responsive Card Grid**: Hover effects, match percentage badges, and star ratings.
+- **Movie Detail Modal**: Full plot synopsis, tagline, explainability breakdown, and action triggers.
+- **Local Watchlist**: Save and manage favorite recommendations.
+
+---
+
+## How to Run Locally
 
 ### Step 1: Start the Backend Recommendation Engine
 Open a terminal in `engine_backend/`:
 ```bash
-cd "e:/Movie recommendation/engine_backend"
+cd "engine_backend"
 python run.py
 ```
 > The API will be live at: `http://127.0.0.1:8000`  
@@ -69,17 +89,19 @@ python run.py
 ### Step 2: Start the Next.js Frontend
 Open a second terminal in `web_frontend/`:
 ```bash
-cd "e:/Movie recommendation/web_frontend"
+cd "web_frontend"
 npm run dev
 ```
 > Open your browser at: `http://localhost:3000`
 
 ---
 
-## Key Features in the UI
-- **Live Autocomplete Search (`Ctrl+K`)**: Instant search across 45,000+ films with live poster thumbnails and ratings.
-- **Multi-Movie Taste Profile**: Add up to 5 favorite movies to blend recommendations.
-- **Engine Tuning Panel**: Sliders to adjust Similarity vs. Quality, rating thresholds, and genre filter pills.
-- **5-Column Responsive Card Grid**: Hover effects, match percentage badges, and star ratings.
-- **Movie Detail Modal**: Full plot synopsis, tagline, explainability breakdown, and action triggers.
-- **Local Watchlist**: Save and manage favorite recommendations.
+## Cloud Deployment Configuration
+
+- **Backend (Render)**:
+  - **Root Directory**: `engine_backend`
+  - **Build Command**: `pip install -r requirements.txt`
+  - **Start Command**: `uvicorn api:app --host 0.0.0.0 --port $PORT`
+- **Frontend (Vercel)**:
+  - **Root Directory**: `web_frontend`
+  - **Environment Variable**: `NEXT_PUBLIC_ENGINE_API_URL=https://cineengine-2-0.onrender.com/api`
