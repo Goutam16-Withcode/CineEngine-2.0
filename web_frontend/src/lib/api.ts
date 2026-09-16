@@ -1,10 +1,11 @@
 import { MovieItem, SearchResult, RecommendationRequest, RecommendationResponse, GenreOption } from "../types/movie";
 
 const API_ENDPOINTS = [
+  process.env.NEXT_PUBLIC_ENGINE_API_URL,
   "/api/engine",
   "http://127.0.0.1:8000/api",
   "http://localhost:8000/api",
-];
+].filter(Boolean) as string[];
 
 // Rich fallback catalog with genuine TMDB poster assets ensuring the UI is never blank
 const CURATED_FALLBACK_MOVIES: MovieItem[] = [
